@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { AlertService } from '../../../alerts/alert.service';
-import { LoginService } from '../../services/login.service';
+import { AlertService } from '../../alerts/alert.service';
+import { LoginService } from '../services/login.service';
 import Swal from 'sweetalert2'
 
 @Component({

@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { AlertService } from '../../../alerts/alert.service';
-import { LoginService } from '../../../login/services/login.service';
-import Swal from 'sweetalert2'
+import { LoginService } from '../../login/services/login.service';
+
 
 @Component({
   selector: 'app-navbar',

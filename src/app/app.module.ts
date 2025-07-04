@@ -5,16 +5,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 
-import { LoginComponent } from './core/login/component/login/login.component';
-import { HomeComponent } from './features/home/component/home/home.component';
-import { NavbarComponent } from './core/navbar/component/navbar/navbar.component';
+import { LoginComponent } from './core/login/component/login.component';
+import { NavbarComponent } from './core/navbar/component/navbar.component';
+import { ToysComponent } from './features/shopping/toys/component/toys.component';
+import { MedicalRecordsComponent } from './features/medicalRecords/component/medical-records.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    ToysComponent,
+    MedicalRecordsComponent
   ],
   imports: [
     BrowserModule,

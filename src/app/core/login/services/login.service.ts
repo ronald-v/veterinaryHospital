@@ -1,7 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-
 import { map } from 'rxjs/operators'
 import Swal from 'sweetalert2';
 
