@@ -1,1 +1,26 @@
-<h1>Login</h1>
+<div id="contenedor">
+    <form id="login" [formGroup]="loginForm" (submit)="Login()">
+        <div id="input-head">
+            <div id="txtH">
+                <label>INICIO DE SESIÓN</label>
+            </div>
+            <div id="icon-head">
+                <i class="bi bi-person-circle iconH"></i>
+            </div>
+        </div>
+
+        <div class="input-trans">
+            <label class="form-label">Correo</label>
+            <input type="text" class="form-control" formControlName="email" [class.is-invalid]="validEmail">
+        </div>
+
+        <div class="input-trans">
+            <label class="form-label">Contraseña</label>            
+            <input type="password" class="form-control" formControlName="password" [class.is-invalid]="validPassword">
+        </div>
+        
+        <div class="input-trans">
+            <button class="btn btn-primary btnLog" type="submit" [disabled]="!loginForm.valid">Ingresar</button>
+        </div>                 
+    </form>
+</div>
