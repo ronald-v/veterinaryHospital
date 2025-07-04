@@ -26,11 +26,7 @@ export class LoginComponent {
 
   public Login() {
     if (!this.loginForm.valid) {
-      Swal.fire({
-        text: "Completa toda la información antes de acceder",
-        icon: 'error',
-        confirmButtonText: 'Cerrar'
-      });
+      this.alert.error("Completa toda la información antes de acceder");
       return;
     }
 
@@ -40,12 +36,7 @@ export class LoginComponent {
       this.router.navigate(['home']);
     },(err:any) => {
       Swal.close();
-      //err.message,
-      Swal.fire({
-        text: "Credenciales invalidas, por favor verifique los datos ingresado y vuelva a intentar",
-        icon: 'error',
-        confirmButtonText: 'Cerrar'
-      });
+      this.alert.error("Credenciales invalidas, por favor verifique los datos ingresado y vuelva a intentar");
     });
     
   }
