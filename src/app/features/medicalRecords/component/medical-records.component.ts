@@ -41,6 +41,8 @@ export class MedicalRecordsComponent {
   constructor(private fb: FormBuilder, private alert: AlertService, private router: Router, private medical: MedicalRecordsService){    
     if (localStorage.getItem('token') === undefined) this.router.navigate(['login']);
 
+    console.log(localStorage.getItem('token'));
+
     this.recordForm = this.fb.group({
       ownerName: ["", [Validators.required, Validators.maxLength(100), Validators.pattern("^[A-Za-zÀ-ÿÑñ \n]*$")]],
       petName: ["", [Validators.required, Validators.maxLength(100), Validators.pattern("^[A-Za-zÀ-ÿÑñ \n]*$")]],
