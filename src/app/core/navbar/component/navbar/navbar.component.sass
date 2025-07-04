@@ -1,0 +1,148 @@
+/*--------------------------------------NAVBAR--------------------------------------*/
+#NavBar
+    display: flex
+    background-image: linear-gradient(to bottom right, #a30000, #ef381e, #eabc67)
+    justify-content: space-between
+    font-family: 'Open Sans', sans-serif
+    font-weight: bold
+    height: 40px
+
+#btn, #usu
+    padding-top: 0.2rem
+    margin: 0px
+    text-align: center
+    width: 5vw
+
+#Aleft, #nUsu, #version
+    padding-top: 0.5rem
+    margin: 0px
+    text-align: left
+
+#Aleft
+    width: 46vw
+
+#nUsu
+    width: 36vw
+    text-align: right
+
+#version
+    width: 8vw
+
+.SpanNav
+    color: #fff
+    font-size: 0.8rem
+
+.iconM
+    font-size:1.5rem
+    color: #fff
+    margin: 0px
+
+.iconM:hover
+    color: rgb(11, 145, 163)
+
+/*--------------------------------------MENÚ LATERAL--------------------------------------*/
+.divMenu, .divItem, .divSubItem, .divSubItemA
+    border: none
+    background-color: #fff
+    width: 100%
+    height: 52px
+    max-height: 52px
+    padding-top: 10px
+    border-top: 0.8px solid #e1e1e1
+    border-bottom: 0.8px solid #e1e1e1
+    font-family: 'Open Sans', sans-serif
+    font-weight: bold
+
+.divMenu
+    padding-left: 15px
+
+.divItem
+    padding-left: 40px
+
+.btnMenu 
+    border: none
+    background-color: #fff
+    padding: 0px
+    margin: 0px
+
+.txtEncabezado
+    font-size: 1.05rem
+    padding-left: 6px
+
+.SubCor
+    padding-left: 20px
+
+.divSubItem
+    padding-left: 40px
+
+.divSubItem span
+    padding-left: 3px
+    font-size: 0.8rem
+
+.txtsub
+    font-size: 0.8rem
+    padding-left: 6px
+
+.divSubItemA
+    padding-left: 40px
+    padding-top: 0px
+    display: table
+
+.divSubItemA button
+    display: table-row
+    width: 290px
+    height: 48px
+
+.divSubItemA i
+    display: table-cell
+
+.divSubItemA span
+    display: table-cell
+    text-align: left
+    padding-left: 3px
+    font-size: 0.8rem
+/*--------------------------------------RESPONSIVE--------------------------------------*/
+@media screen and (min-width: 900px)
+    #NavBar
+        height: 43px
+    
+    #btn, #usu
+        padding-top: 0px        
+        width: 4vw
+    
+    #Aleft, #nUsu, #version
+        padding-top: 0.6rem
+    
+    #Aleft
+        width: 56vw
+    
+    #nUsu
+        width: 33.5vw
+    
+    #version
+        width: 6.5vw
+    
+    .SpanNav
+        font-size: 1rem
+    
+    .iconM
+        font-size:1.9rem
+    
+@media screen and (min-width: 1200px)
+    #NavBar
+        height: 46px
+    
+    #nUsu
+        width: 34vw
+    
+    #Aleft, #nUsu, #version
+        padding-top: 0.4rem
+    
+    #version
+        width: 6vw
+    
+    .SpanNav
+        font-size: 1.4rem
+    
+    .iconM
+        font-size:2rem

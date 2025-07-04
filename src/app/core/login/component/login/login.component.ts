@@ -29,7 +29,8 @@ export class LoginComponent {
       this.alert.error("Completa toda la información antes de acceder");
       return;
     }
-
+    this.router.navigate(['home']);
+    /*
     Swal.showLoading();
     this.auth.Login(this.loginForm.value).subscribe((res:any) => {
       Swal.close();
@@ -38,7 +39,7 @@ export class LoginComponent {
       Swal.close();
       this.alert.error("Credenciales invalidas, por favor verifique los datos ingresado y vuelva a intentar");
     });
-    
+    */
   }
 
   get validEmail() { return this.loginForm.get('email')!.invalid && this.loginForm.get('email')!.touched }

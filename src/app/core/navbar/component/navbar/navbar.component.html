@@ -1,0 +1,120 @@
+<!--_______________________________________ NavBar _______________________________________-->
+<div id="NavBar">
+  <section id="btn">
+    <i class="bi bi-list iconM" type="button" data-bs-toggle="offcanvas" href="#LateralNavBar"></i>
+  </section>
+
+  <section id="usu">
+    <i class="bi bi-person-circle iconM" data-bs-toggle="dropdown" role="button" aria-expanded="false"></i>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" (click)="Logout()">Logout</a></li>
+    </ul>
+  </section>
+</div>
+<!--_______________________________________________________________________________________-->
+<!--______________________________________ Main Menu ______________________________________-->
+<div class="offcanvas offcanvas-start navbar-nav-scroll" style="--bs-scroll-height: 1000px;" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1" id="LateralNavBar" aria-labelledby="offcanvasExampleLabel">
+  <!-- Title -->
+  <div class="offcanvas-header">
+    Main Menu
+  </div>
+  <div class="accordion-item">
+  <!-- Body -->
+  <div class="offcanvas-body">
+<!--_______________________________________________________________________________________-->
+<!--______________________________________ Accordion ______________________________________-->
+    <div class="accordion accordion-flush" id="accordionFlushMenu">
+      <!-- Shop -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading1">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse1" aria-expanded="false" aria-controls="flush-collapse1">
+            <i class="bi bi-cart4"></i>
+            <span class="txtEncabezado">Shop</span>
+          </button>
+        </h2>
+        <!-- Toys -->
+        <div id="flush-collapse1" class="accordion-collapse collapse" aria-labelledby="flush-heading1" data-bs-parent="#accordionFlushMenu">
+          <div class="divItem">
+            <button class="btnMenu" (click)="addressing(0, 1)" data-bs-dismiss="offcanvas"> <!-- [disabled]="rol != '1'" -->
+              <i class="bi bi-cookie"></i>
+              <span class="txtEncabezado">Toys</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Clothes -->
+        <div id="flush-collapse1" class="accordion-collapse collapse" aria-labelledby="flush-heading1" data-bs-parent="#accordionFlushMenu">
+          <div class="divItem">
+            <button class="btnMenu" (click)="addressing(0, 2)" data-bs-dismiss="offcanvas"> <!-- [disabled]="rol != '1'" -->
+              <i class="bi bi-gift-fill"></i>
+              <span class="txtEncabezado">Clothes</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!--_______________________________________________________________________________________-->
+      <!-- Spa -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading2">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse2" aria-expanded="false" aria-controls="flush-collapse2">
+            <i class="bi bi-postcard-heart-fill"></i>
+            <span class="txtEncabezado">Spa</span>
+          </button>
+        </h2>
+        <div id="flush-collapse2" class="accordion-collapse collapse" aria-labelledby="flush-heading2" data-bs-parent="#accordionFlushMenu">
+          <div class="divItem">
+            <button class="btnMenu" (click)="addressing(1,1)" data-bs-dismiss="offcanvas">
+              <i class="bi bi-droplet-half"></i>
+              <span class="txtEncabezado">Bath Appointment</span>
+            </button>
+          </div>
+          <div class="divItem">
+            <button class="btnMenu" (click)="addressing(1,2)" data-bs-dismiss="offcanvas">
+              <i class="bi bi-scissors"></i>
+              <span class="txtEncabezado">Haircut Appointment</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!--_______________________________________________________________________________________-->
+      <!-- Medicalservices -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading3">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse3" aria-expanded="false" aria-controls="flush-collapse3">
+            <i class="bi bi-heart-pulse-fill"></i>
+            <span class="txtEncabezado">Medical Services</span>
+          </button>
+        </h2>
+        <div id="flush-collapse3" class="accordion-collapse collapse" aria-labelledby="flush-heading3" data-bs-parent="#accordionFlushMenu">
+          <div class="divItem">
+            <button class="btnMenu" (click)="addressing(2,1)" data-bs-dismiss="offcanvas">
+              <i class="bi bi-journal-text"></i>
+              <span class="txtEncabezado">Medical Appointment</span>
+            </button>
+          </div>
+          <div class="divItem">
+            <button class="btnMenu" (click)="addressing(2,2)" data-bs-dismiss="offcanvas">
+              <i class="bi bi-bandaid-fill"></i>
+              <span class="txtEncabezado">Vaccination Appointment</span>
+            </button>
+          </div>
+          <div class="divItem">
+            <button class="btnMenu" (click)="addressing(2,3)" data-bs-dismiss="offcanvas">
+              <i class="bi bi-bug-fill"></i>
+              <span class="txtEncabezado">Deworming Appointment</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!--_______________________________________________________________________________________-->
+      <!-- medicalRecord -->
+      <div class="divMenu">
+        <button class="btnMenu" (click)="addressing(3,0)" data-bs-dismiss="offcanvas">
+          <i class="bi bi-hospital-fill"></i>
+          <span class="txtEncabezado">Medical Records</span>
+        </button>
+      </div>
+      <!--_______________________________________________________________________________________-->
+    </div>
+  </div>
+</div>
