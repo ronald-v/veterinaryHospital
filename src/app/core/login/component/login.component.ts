@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 
 import { AlertService } from '../../alerts/alert.service';
 import { LoginService } from '../services/login.service';
-import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-login',
@@ -14,8 +13,6 @@ import Swal from 'sweetalert2'
 
 export class LoginComponent {
   loginForm: FormGroup;
-  isLoginMode = true;
-  loading = false;
 
   constructor(private fb: FormBuilder, private auth: LoginService, private router: Router, private alert: AlertService) { 
     this.loginForm = this.fb.group({
@@ -29,7 +26,9 @@ export class LoginComponent {
       this.alert.error("Completa toda la información antes de acceder");
       return;
     }
-    this.router.navigate(['home']);
+
+    localStorage.setItem('token', "olikujy5th15rth5eref1e5ef");
+    this.router.navigate(['30']);
     /*
     Swal.showLoading();
     this.auth.Login(this.loginForm.value).subscribe((res:any) => {

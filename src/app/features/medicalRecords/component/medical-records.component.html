@@ -1,1 +1,190 @@
-<p>medical-records works!</p>
+<div id="Contenido">
+    <div id="input-head">
+        <label>Medical Record</label>
+        <hr>
+    </div>
+
+    <form [formGroup]="recordForm">
+        <div class="row" id="Contenido">
+            <div class="col-xl-12 col-sm-12 col-lg-12">
+                <div class="accordion" role="tablist" id="accordion-1">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" role="tab">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#accordion-1 .item-1" aria-expanded="true"
+                                aria-controls="accordion-1 .item-1">
+                                <i *ngIf="!validOwner || !validPet" class="bi bi-exclamation-triangle  mx-2 text-danger"></i>
+                                <i *ngIf="validOwner && validPet" class="bi bi-check-circle-fill mx-1  text-success"></i>
+                                Names
+                            </button>
+                        </h2>
+                        <div class="accordion-collapse collapse show item-1" role="tabpanel" data-bs-parent="#accordion-1">
+                            <div class="accordion-body">
+                                <div class="row my-2">
+                                    <div class="col-lg-6 mb-3">
+                                        <label class="form-label ">Owner Name</label>
+                                        <input class="form-control" type="text" 
+                                            formControlName="ownerName" [class.is-invalid]="!validOwner"
+                                        >
+                                    </div>
+                                    <div class="col-lg-6 mb-3">
+                                        <label class="form-label ">Pet Name</label>
+                                        <input class="form-control" type="text" 
+                                            formControlName="petName" [class.is-invalid]="!validPet"
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" role="tab">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#accordion-1 .item-2" aria-expanded="false"
+                                aria-controls="accordion-1 .item-2">
+                                <i *ngIf="!validType || !validSize" class="bi bi-exclamation-triangle  mx-2 text-danger"></i>
+                                <i *ngIf="validType && validSize" class="bi bi-check-circle-fill mx-1  text-success"></i>
+                                Pet Description
+                            </button>
+                        </h2>
+                        <div class="accordion-collapse collapse item-2" role="tabpanel" data-bs-parent="#accordion-1">
+                            <div class="accordion-body">
+                                <div class="row my-2">
+                                    <div class="col-lg-6 mb-3">
+                                        <label class="form-label ">pet Type:</label>
+                                        <select class="form-select" formControlName="petType">
+                                            <option value="" [disabled]="!validOwner || !validPet">
+                                                Select the type of pet
+                                            </option>
+                                            <option *ngFor="let eType of lstPetsType" value="{{eType.id}}" 
+                                                [disabled]="!validOwner || !validPet">
+                                                {{eType.name}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-6 mb-3">
+                                        <label class="form-label ">pet Size:</label>
+                                        <div *ngFor="let eSize of lstPetsSize">
+                                            <input type="radio" name="petSize" formControlName="petSize"
+                                                id="{{eSize.name}}Size" value="{{eSize.id}}">
+                                            <label for="{{eSize.name}}Size">{{eSize.name}}</label>
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" role="tab">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#accordion-1 .item-3" aria-expanded="false"
+                                aria-controls="accordion-1 .item-3">
+                                <i *ngIf="!validDescription" class="bi bi-exclamation-triangle  mx-2 text-danger"></i>
+                                <i *ngIf="validDescription" class="bi bi-check-circle-fill mx-1  text-success"></i>
+                                comments
+                            </button>
+                        </h2>
+                        <div class="accordion-collapse collapse item-3" role="tabpanel" data-bs-parent="#accordion-1">
+                            <div class="accordion-body">
+                                <div class="row my-2">
+                                    <div class="col-lg-12 mb-3">
+                                        <textarea class="form-control" rows="5" formControlName="description"
+                                            [class.is-invalid]="!validDescription" placeholder="Add your comment (maximum 200 characters)">
+                                        </textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" role="tab">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#accordion-1 .item-4" aria-expanded="false"
+                                aria-controls="accordion-1 .item-4">
+                                <i *ngIf="arrVaccinations.length < 1 && arrEditVaccinations.length < 1 " class="bi bi-exclamation-triangle mx-2 text-danger"></i>
+                                <i *ngIf="arrVaccinations.length >= 1 || arrEditVaccinations.length >= 1" class="bi bi-check-circle-fill mx-1  text-success"></i>
+                                Vaccinations
+                            </button>
+                        </h2>
+                        <div class="accordion-collapse collapse item-4" role="tabpanel" data-bs-parent="#accordion-1">
+                            <div class="accordion-body">
+                                <div class="row ">
+                                    <div class="col-lg-4 mb-3">
+                                        <label class="form-label ">Number:</label>
+                                        <input type="text" class="form-control" formControlName="numberVaccination" [class.is-invalid]="!validNumberVaccination">
+                                    </div>
+
+                                    <div class="col-lg-4 mb-3">
+                                        <label class="form-label ">Type:</label>
+                                        <select class="form-select" formControlName="typeVaccination" [class.is-invalid]="!validTypeVaccination">
+                                            <option value="">Select type of vaccination</option>
+                                            <option *ngFor="let eVaccinations of lstVaccinations"
+                                                value="{{eVaccinations.id}}">
+                                            {{eVaccinations.name}}
+                                        </option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-lg-4 mb-3">
+                                        <label class="form-label ">Date:</label>
+                                        <input type="date" class="form-control" formControlName="dateVaccination" [class.is-invalid]="!validDateVaccination">
+                                    </div>
+
+                                    <div class="d-grid gap-2 mt-4">
+                                        <button class="btn btn-success" type="button" (click)="addVaccinations()" 
+                                            [disabled]="!validNumberVaccination || !validTypeVaccination || !validDateVaccination">
+                                            Agregar Factura
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="row ">
+                                    <div *ngIf="arrVaccinations.length>=1 || arrEditVaccinations.length>=1"
+                                        class="table-responsive">
+                                        <table class="table text-center align-middle">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Number</th>
+                                                    <th scope="col">Type</th>
+                                                    <th scope="col">Date</th>
+                                                    <th scope="col">Borrar</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let vaccination of arrVaccinations; let i = index ">
+                                                    <th scope="row">{{vaccination.number}}</th>
+                                                    <td>{{vaccinationName(vaccination.type)}}</td>
+                                                    <td *ngIf="vaccination.date != '-'; else nDate" class="wrap">{{vaccination.date}}</td>
+                                                    <ng-template #nDate><td class="wrap">-</td></ng-template>
+                                                    
+                                                    <td>
+                                                        <button type="button" class="btn btn-outline-danger" (click)="deleteVaccinations(1, vaccination.number)">
+                                                            <i class="bi bi-person-dash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr *ngFor="let vaccination of arrEditVaccinations; let i = index ">
+                                                    <td>
+                                                        <button type="button" class="btn btn-outline-danger" (click)="deleteVaccinations(2, vaccination[0])">
+                                                            <i class="bi bi-person-dash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-trans">
+            <button class="btn btn-primary btnLog" type="submit" [disabled]="!recordForm.valid">Ingresar</button>
+        </div>
+    </form>
+</div>

@@ -1,5 +1,5 @@
-import { EventEmitter, Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators'
 import Swal from 'sweetalert2';
@@ -11,7 +11,6 @@ import { UserModule } from '../../../shared/models/user/user.module';
   providedIn: 'root'
 })
 export class LoginService {
-  logStatus$ = new EventEmitter();
   private config =environment.endPoint;
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -30,5 +29,41 @@ export class LoginService {
     this.router.navigate(['/login']);
     localStorage.clear();
     Swal.close();
+  }
+
+  public IsAuth(): any {
+    let token = localStorage.getItem('token');
+
+    if (token && token !== undefined && token != ''){
+      this.GetAuthState();
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  private GetAuthState(): any {
+    let token = localStorage.getItem('token');
+
+    this.http.get(environment.endPoint + 'api/Auth/isAuth', { headers: new HttpHeaders({ 'Authorization': "Bearer " + token }) }).subscribe(res => {
+    }, (err:any) => {
+      this.logout();
+    });
+  }
+
+  public readToken() {
+    let token = localStorage.getItem('token')!;
+
+    if (token && token !== undefined && token != ''){
+      this.IsAuth();
+      return token;
+    } else {
+      this.logout();
+      return null;
+    }
+  }
+
+  public tokenHeader() {
+    return { headers: new HttpHeaders({ 'Authorization': "Bearer " + this.readToken() }) } 
   }
 }
