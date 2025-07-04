@@ -35,7 +35,7 @@
         <!-- Toys -->
         <div id="flush-collapse1" class="accordion-collapse collapse" aria-labelledby="flush-heading1" data-bs-parent="#accordionFlushMenu">
           <div class="divItem">
-            <button class="btnMenu" (click)="addressing(0, 1)" data-bs-dismiss="offcanvas"> <!-- [disabled]="rol != '1'" -->
+            <button class="btnMenu" (click)="addressing(0, 1)" data-bs-dismiss="offcanvas">
               <i class="bi bi-cookie"></i>
               <span class="txtEncabezado">Toys</span>
             </button>
@@ -45,7 +45,7 @@
         <!-- Clothes -->
         <div id="flush-collapse1" class="accordion-collapse collapse" aria-labelledby="flush-heading1" data-bs-parent="#accordionFlushMenu">
           <div class="divItem">
-            <button class="btnMenu" (click)="addressing(0, 2)" data-bs-dismiss="offcanvas"> <!-- [disabled]="rol != '1'" -->
+            <button class="btnMenu" (click)="addressing(0, 2)" data-bs-dismiss="offcanvas" [disabled] = "!isActive">
               <i class="bi bi-gift-fill"></i>
               <span class="txtEncabezado">Clothes</span>
             </button>
@@ -63,13 +63,13 @@
         </h2>
         <div id="flush-collapse2" class="accordion-collapse collapse" aria-labelledby="flush-heading2" data-bs-parent="#accordionFlushMenu">
           <div class="divItem">
-            <button class="btnMenu" (click)="addressing(1,1)" data-bs-dismiss="offcanvas">
+            <button class="btnMenu" (click)="addressing(1,1)" data-bs-dismiss="offcanvas" [disabled] = "!isActive">
               <i class="bi bi-droplet-half"></i>
               <span class="txtEncabezado">Bath Appointment</span>
             </button>
           </div>
           <div class="divItem">
-            <button class="btnMenu" (click)="addressing(1,2)" data-bs-dismiss="offcanvas">
+            <button class="btnMenu" (click)="addressing(1,2)" data-bs-dismiss="offcanvas" [disabled] = "!isActive">
               <i class="bi bi-scissors"></i>
               <span class="txtEncabezado">Haircut Appointment</span>
             </button>
@@ -87,19 +87,19 @@
         </h2>
         <div id="flush-collapse3" class="accordion-collapse collapse" aria-labelledby="flush-heading3" data-bs-parent="#accordionFlushMenu">
           <div class="divItem">
-            <button class="btnMenu" (click)="addressing(2,1)" data-bs-dismiss="offcanvas">
+            <button class="btnMenu" (click)="addressing(2,1)" data-bs-dismiss="offcanvas" [disabled] = "!isActive">
               <i class="bi bi-journal-text"></i>
               <span class="txtEncabezado">Medical Appointment</span>
             </button>
           </div>
           <div class="divItem">
-            <button class="btnMenu" (click)="addressing(2,2)" data-bs-dismiss="offcanvas">
+            <button class="btnMenu" (click)="addressing(2,2)" data-bs-dismiss="offcanvas" [disabled] = "!isActive">
               <i class="bi bi-bandaid-fill"></i>
               <span class="txtEncabezado">Vaccination Appointment</span>
             </button>
           </div>
           <div class="divItem">
-            <button class="btnMenu" (click)="addressing(2,3)" data-bs-dismiss="offcanvas">
+            <button class="btnMenu" (click)="addressing(2,3)" data-bs-dismiss="offcanvas" [disabled] = "!isActive">
               <i class="bi bi-bug-fill"></i>
               <span class="txtEncabezado">Deworming Appointment</span>
             </button>

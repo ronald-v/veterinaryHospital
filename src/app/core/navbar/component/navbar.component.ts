@@ -10,6 +10,8 @@ import { LoginService } from '../../login/services/login.service';
   styleUrl: './navbar.component.sass'
 })
 export class NavbarComponent {
+  isActive: boolean = false;
+  
   constructor(private auth: LoginService, private router: Router) {}
 
   public Logout() { 
